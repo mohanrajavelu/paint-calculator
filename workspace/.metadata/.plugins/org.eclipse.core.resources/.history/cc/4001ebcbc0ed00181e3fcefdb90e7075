@@ -1,0 +1,77 @@
+package Sample;
+
+import java.util.Scanner;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import junit.framework.Assert;
+
+
+
+public class TestOne {
+	
+public WebDriver driver;
+final int feet = 400;int gallon = 1;
+	String room; int i=1;
+	String manipulatedValue = null;
+	
+	public void launchApplication(){
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mrajavelu\\workspace\\Test\\src\\Library\\chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		driver.get("http://localhost:5000/?");
+		System.out.println("Browser has opened the application");
+		
+		enterRooms();
+		enterDimensionsPerRoom();
+		
+		WebElement amountOfFeet = driver.findElement(By.xpath("//td[2]"));
+		WebElement gallons = driver.findElement(By.xpath("//td[3]"));
+		Assert.assertEquals(amountOfFeet.getText(), manipulatedValue);
+	}
+	
+	public void enterRooms(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Number of Rooms to be painted : ");
+		room = scan.next();
+		
+		driver.findElement(By.name("rooms")).sendKeys(room);
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+	}
+	
+	public void enterDimensionsPerRoom(){
+		driver.findElement(By.name("length-0")).sendKeys("20");		
+		driver.findElement(By.name("width-0")).sendKeys("20");
+		driver.findElement(By.name("height-0")).sendKeys("2");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+	}
+	
+	public int actualGallonsManipulation(){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Feed in amount of feet : ");
+		int amountofFeeet = scan.nextInt();
+		int rooms = Integer.parseInt(room);
+		int calculatedGallon;
+	while(i<rooms){	
+		calculatedGallon = (amountofFeeet/feet);
+		System.out.println("Gallons Manipulation for the feet, with respected to :" + room + calculatedGallon);
+		i++;
+	}
+	manipulatedValue = " " + calculatedGallon;
+	return calculatedGallon;
+	}
+	
+	
+	public static void main(String[] args) {
+		TestOne ob = new TestOne();
+		ob.actualGallonsManipulation();
+		ob.launchApplication();
+	}
+
+}

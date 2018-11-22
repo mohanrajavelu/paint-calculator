@@ -1,0 +1,9 @@
+package Tek_Paint_Page;
+
+public class Paint_Base {
+	
+	public static void main(String[] args) {
+		System.out.println("Welcome");
+	}
+
+}

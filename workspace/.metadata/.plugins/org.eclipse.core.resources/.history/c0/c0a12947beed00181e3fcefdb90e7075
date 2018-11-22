@@ -1,0 +1,48 @@
+package Sample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+
+public class TestOne {
+	
+public WebDriver driver;
+	
+	
+	public void launchApplication(){
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mrajavelu\\workspace\\Test\\src\\Library\\chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		driver.get("http://localhost:5000/?");
+		System.out.println("Browser has opened the application");
+		driver.findElement(By.name("rooms")).sendKeys("1");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		driver.findElement(By.name("length-0")).sendKeys("20");
+		
+		driver.findElement(By.name("width-0")).sendKeys("20");
+		driver.findElement(By.name("height-0")).sendKeys("2");
+		driver.findElement(By.cssSelector("input[type='submit']")).click();
+		WebElement amountOfFeet = driver.findElement(By.xpath("//td[2]"));
+		WebElement gallons = driver.findElement(By.xpath("//td[3]"));
+	}
+	
+	public void actualGallonsManipulation(){
+		int feet = 400;
+		int gallon = 1;
+		int paint = (800/400);
+		System.out.println(paint);
+	}
+	
+	public static void main(String[] args) {
+		TestOne ob = new TestOne();
+		//ob.launchApplication();
+		ob.actualGallonsManipulation();
+	}
+
+}

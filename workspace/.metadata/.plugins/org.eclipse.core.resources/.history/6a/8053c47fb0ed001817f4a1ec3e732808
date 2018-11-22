@@ -1,0 +1,29 @@
+package Tek_Paint_Page;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Paint_Base {
+	
+	public WebDriver driver;
+	
+	
+	public void launchApplication(){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mrajavelu\\workspace\\TekSystems\\Library\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("http://www.googlemail.com");
+		System.out.println(Browser has opened the application);
+		
+	}
+	
+	public void enterRooms(){
+		
+	}
+	
+	public static void main(String[] args) {
+		Paint_Base ob = new Paint_Base();
+		ob.launchApplication();
+	}
+
+}

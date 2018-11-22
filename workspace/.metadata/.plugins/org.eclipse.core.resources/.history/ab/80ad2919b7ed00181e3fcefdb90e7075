@@ -1,0 +1,31 @@
+package Sample;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+
+public class TestOne {
+	
+public WebDriver driver;
+	
+	
+	public void launchApplication(){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mrajavelu\\workspace\\Test\\src\\Library\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("htttp://www.facebook.com");
+		driver.navigate().to("http://localhost:5000/?");
+		System.out.println("Browser has opened the application");
+		
+	}
+	
+	public void enterRooms(){
+		
+	}
+	
+	public static void main(String[] args) {
+		TestOne ob = new TestOne();
+		ob.launchApplication();
+	}
+
+}
