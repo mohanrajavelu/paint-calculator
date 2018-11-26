@@ -1,0 +1,69 @@
+Test Plan: 
+==========
+Developed by: Mohan Rajavelu 
+Date: 11/25/2018.
+
+
+Test Scope: 
+-----------
+As a user, validate the number of gallons needed to paint the room based on given Length, Width and Height.
+
+
+Feature to be tested:
+---------------------------
+1. Validate that user is able to enter data in Length, Width, Height, Number of Rooms to be painted field in the application using automation test script. 
+2. Validate that user is able to submit paint calculation application with valid data including whole number and decimal value.
+3. Validate that user is able to see appropriate error message in application when invalid data is entered. 
+4. Validate that Actual gallons (the result) provided in paint calculation application is correct as per requirement.
+
+
+Feature not to be tested:
+--------------------------- 
+1. Test script is developed only for a single room so enter "Number of Rooms to be painted" in eclipse console appliation as 1. 
+2. Enter valid number in "Enter length", "Enter width" and "Enter height" field.
+3. test only in google chrome browser.
+
+
+Test Limitation:  
+-----------------
+1. Test script is developed using Eclipse + Java + Selenium Webdriver using Junit framework. 
+2. Tester needs to install appropriate software in local folder per instruction given in "Software Installation Procedure" section in the test plan.
+3. Tester needs to input only the valid number in eclipse > console > input fields during test execution.
+4. Close the existing Paint Calculus application browser before test execution.
+5. Tester needs to follow the test execution procedure given in "Test Execution Procedure" section.
+
+
+Software Installation Procedure:
+--------------------------------
+1. Go to link "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" and download Java version 1.7.
+2. Execute the downloaded exe file > "jdk/bin" path > Go to Windows > Environment variable > add the copied "jdk/bin path" to "Path variable" displayed under "System Variable".
+3. Download Eclipse from "http://www.eclipse.org/downloads/packages/release/Mars/2" > Run the exe > Open Eclipse.
+4. Download Selenium Webdriver version 3.12 and install using Eclipse > Build Path.
+5. Download Junit version-4 and install using Eclipse > Build Path.
+6. Go to GIT > https://github.com/mohanrajavelu/paint-calculator/tree/paint-calculator-tests > Checkout file in your local folder.
+7. Go to Local folder > Workspace > Src > program class 'TestOne.java".
+8. In "TestOne.Java" program Import the following:
+ - import org.testng.annotations.AfterClass;
+ - import org.testng.annotations.AfterTest;
+ - import org.testng.annotations.BeforeClass;
+ - import org.testng.annotations.BeforeTest;
+ - import org.testng.annotations.Test;
+9. Intall 'Paint Calculation Python' applicatin in local machine and run the application using windows command prompt.
+10. Make sure paint application is pointing to http://localhost:5000 
+11. Identify Chromedriver location in your local machine > Go to "TestOne.java" program and update the following path and save the program.
+ ---- C:\\Users\\mrajavelu\\workspace\\Test\\src\\Library\\chromedriver.exe" 
+
+
+Test Execution Procedure:
+-------------------------
+1. Make sure "Software Installation Procedure" is complete.
+2. Make sure instruction given in "Test Limitation" are followed.
+3. Open "TestOne.Java" program using Eclipse.
+4. Right click in the program area > Select Run As > Select 'Junit Test' or 'Java Application'.
+5. Look at the Eclipse > console area and enter valid number in "Enter length" and press enter key.
+6. Look at the Eclipse > console area and enter valid number in "Enter width" and press enter key.
+7. Look at the Eclipse > console area and enter valid number in "Enter height" and press enter key.
+8. Look at the Eclipse > console area and enter valid number in "Number of Rooms to be painted" and press enter key.
+9. Now selenium you can Paint Calculation application (Python) in Google Chrome browser and test execution is started. 
+10. Selenium webdriver will give a result in console after test execution. 
+11. If you want to run again just close the browser (paint calculator 'Python' application) > Follow test execution procedure from step-4 till step-10.
